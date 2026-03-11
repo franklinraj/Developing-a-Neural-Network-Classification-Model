@@ -50,34 +50,57 @@ Write your own steps
 class PeopleClassifier(nn.Module):
     def __init__(self, input_size):
         super(PeopleClassifier, self).__init__()
-        #Include your code here
-
-
+        self.fc1=nn.Linear(input_size,32)
+        self.fc2=nn.Linear(32,16)
+        self.fc3=nn.Linear(16,8)
+        self.fc4=nn.Linear(8,4)
 
     def forward(self, x):
-        #Include your code here
+      x=F.relu(self.fc1(x))
+      x=F.relu(self.fc2(x))
+      x=F.relu(self.fc3(x))
+      x=self.fc4(x)
+      return x
+
+
         
 # Initialize the Model, Loss Function, and Optimizer
-
 def train_model(model, train_loader, criterion, optimizer, epochs):
-    #Include your code here
+  model.train()
+  for epoch in range(epochs):
+    for inputs, labels in train_loader:
+      optimizer.zero_grad()
+      outputs = model(inputs)
+      loss = criterion(outputs, labels)
+      loss.backward()
+      optimizer.step()
 
+
+
+
+
+    if (epoch + 1) % 10 == 0:
+        print(f'Epoch [{epoch+1}/{epochs}], Loss: {loss.item():.4f}')
 ```
 
 ### Dataset Information
-Include screenshot of the dataset.
+<img width="1065" height="210" alt="image" src="https://github.com/user-attachments/assets/ac96c5fd-77a3-4277-b0b7-c4e2fa6b54d0" />
+
 
 ### OUTPUT
 
 ## Confusion Matrix
 
-Include confusion matrix here
+<img width="662" height="458" alt="image" src="https://github.com/user-attachments/assets/d38e0dd8-ad51-42ed-a1e8-b80504e9f53c" />
+
 
 ## Classification Report
-Include classification report here
+<img width="506" height="357" alt="image" src="https://github.com/user-attachments/assets/db997d77-90c0-48d7-af70-9ce9cf99f434" />
+
 
 ### New Sample Data Prediction
-Include your sample input and output here
+<img width="357" height="111" alt="image" src="https://github.com/user-attachments/assets/1d5c79d8-7147-49e7-a267-03e5b183fec5" />
+
 
 ## RESULT
-Include your result here
+Thus,To develop a neural network classification model for the given dataset,has been done.
