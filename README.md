@@ -11,40 +11,32 @@ In their existing market, the sales team has classified all customers into 4 seg
 You are required to help the manager to predict the right group of the new customers.
 
 ## Neural Network Model
-Include the neural network model diagram.
+<img width="741" height="858" alt="image" src="https://github.com/user-attachments/assets/fcb3e86d-8c34-412e-a11d-65e06d4b4b78" />
+
 
 ## DESIGN STEPS
-### STEP 1: 
+### Step 1: Load and Preprocess Data
+Load the dataset, remove irrelevant columns (ID), handle missing values, encode categorical features using Label Encoding, and encode the target class (Segmentation).
 
-Write your own steps
+### Step 2: Feature Scaling and Data Split
+Split the dataset into training and testing sets, then normalize the input features using StandardScaler for better neural network performance.
 
-### STEP 2: 
+### Step 3: Convert Data to PyTorch Tensors
+Convert the scaled training and testing data into PyTorch tensors and create DataLoader objects for batch-wise training and evaluation.
 
+### Step 4: Define the Neural Network Model
+Design a feedforward neural network with multiple fully connected layers and ReLU activation functions, ending with an output layer for multi-class classification.
 
-
-### STEP 3: 
-
-
-
-### STEP 4: 
-
-
-
-### STEP 5: 
-
-
-
-### STEP 6: 
-
-
+### Step 5: Train the Model
+Train the model using CrossEntropyLoss and Adam optimizer by performing forward propagation, loss calculation, backpropagation, and weight updates over multiple epochs.
 
 
 
 ## PROGRAM
 
-### Name:
+### Name:Franklin raj g
 
-### Register Number:
+### Register Number:212223230058
 
 ```python
 class PeopleClassifier(nn.Module):
